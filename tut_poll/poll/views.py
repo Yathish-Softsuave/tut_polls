@@ -1,9 +1,10 @@
-from django.http import HttpResponse
+import logging
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
-from django.template import loader
 
 from .models import Question
 
+logger = logging.getLogger(__name__)
 
 def index(request):
     questions = Question.objects.order_by('pub_date')
@@ -14,7 +15,13 @@ def index(request):
 
 
 def details(request, question_id):
-    return HttpResponse(f'you are in question {question_id}')
+    try:
+        question = Question.objects.get(id=question_id)
+    except Question.DoesNotExist:
+        logger.info(Question.DoesNotExist)
+        raise Http404("Question does not exist")
+    return HttpResponse(question.question_text)
+
 
 
 def results(request, question_id):
