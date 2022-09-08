@@ -17,10 +17,13 @@ def index(request):
 def details(request, question_id):
     try:
         question = Question.objects.get(id=question_id)
+        context = {
+            'question': question
+        }
     except Question.DoesNotExist:
         logger.info(Question.DoesNotExist)
         raise Http404("Question does not exist")
-    return HttpResponse(question.question_text)
+    return render(request, 'detail.html', context)
 
 
 
