@@ -11,3 +11,15 @@ def index(request):
         'questions': questions
     }
     return render(request, 'index.html', context)
+
+
+def details(request, question_id):
+    return HttpResponse(f'you are in question {question_id}')
+
+
+def results(request, question_id):
+    return HttpResponse(f'result for question {question_id}')
+
+
+def vote(request, question_id):
+    return HttpResponse(f'you voted on question {question_id}')
