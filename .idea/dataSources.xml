@@ -8,11 +8,11 @@
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/tut_polls/db.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="identifier.sqlite" uuid="56d59f49-829b-4e3d-b703-a95f9baf8342">
+    <data-source source="LOCAL" name="db.sqlite3" uuid="56d59f49-829b-4e3d-b703-a95f9baf8342">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:identifier.sqlite</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/tut_poll/db.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
