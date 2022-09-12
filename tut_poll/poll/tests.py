@@ -13,6 +13,7 @@ def create_question(question_text, days):
     )
     return Question.objects.create(question_text=question_text, pub_date=time)
 
+
 class QuestionModelTests(TestCase):
 
     def test_was_published_recently_with_future_questions(self):
