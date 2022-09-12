@@ -8,6 +8,10 @@ from poll.models import Question
 
 
 def create_question(question_text, days):
+    """
+        Create a question with the given `question_text` and published the
+        given number of `days`.
+    """
     time = timezone.now() + datetime.timedelta(
         days=days
     )
