@@ -4,6 +4,7 @@ from django.db.models import F
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
+from django.utils import timezone
 from django.views import generic
 
 from .models import Question, Choice
@@ -16,7 +17,7 @@ class IndexView(generic.ListView):
     context_object_name = 'questions'
 
     def get_queryset(self):
-        return Question.objects.order_by('pub_date')
+        return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
 
 
 class DetailView(generic.DetailView):
